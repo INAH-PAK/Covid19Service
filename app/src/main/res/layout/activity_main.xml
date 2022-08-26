@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable
-            name="placeInfo"
-            type="com.wookie_soft.covid19service.MainActivity"/>
+
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity"
+        tools:context=".view.MainActivity"
         >
-
         <Button
-            android:onClick="@{}"
+            android:id="@+id/main_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="@color/white"
@@ -23,11 +21,17 @@
             android:layout_margin="8dp"
             android:text="내 위치 찾기"/>
 
+<!--        FragmentContainerView : Fragment용으로 설계된 맞춤형 레이아웃. Fragment 컨테이너로 사용됨.
+                                    => 프레그먼트의 트랜젝션을 안정적으로 -->
         <fragment
-            android:id="@+id/map"
+            android:id="@+id/main_map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
+            app:navermap_latitude="37.5666805"
+            app:navermap_longitude="126.9784147"
+            app:navermap_zoom="8"
+            app:navermap_mapType="Terrain"
             android:name="com.naver.maps.map.MapFragment" />
 
 
